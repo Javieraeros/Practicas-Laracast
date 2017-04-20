@@ -18,15 +18,7 @@ Route::get('/holi', function () {
     return view('holi')->with("holi", "holiii mundiiii");
 });
 
-Route::get('/tareas', function () {
-    //$tareas=DB::table('tareas')->get();
-    $tareas=Tareas::all();
-    return view('tareas.index',compact("tareas"));
-});
+Route::get('/tareas','TareasController@index');
 
 
-Route::get('/tareas/{tarea}', function ($id) {
-    //$tarea=DB::table('tareas')->find($id);
-    $tarea=Tareas::find($id);
-    return view('tareas.tarea',compact("tarea"));
-});
+Route::get('/tareas/{tarea}','TareasController@show');

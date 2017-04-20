@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Tareas;
+use App\Tarea;
 
 class TareasController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         //$tareas=DB::table('tareas')->get();
-        $tareas=Tareas::all();
-        return view('tareas.index',compact("tareas"));
+        $tareas = Tarea::all();
+        return view('tareas.index', compact("tareas"));
     }
 
-    public function show($id){
+    /*public function show($id){
     //$tarea=DB::table('tareas')->find($id);
-    $tarea=Tareas::find($id);
+    $tarea=Tarea::find($id);
     return view('tareas.tarea',compact("tarea"));
+    }*/
+
+    public function show(Tarea $tarea){
+        return view('tareas.tarea',compact('tarea'));
     }
 }

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
+    <title>Tareas</title>
+    <link rel="icon" href="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS2pkV1u3hTi81WfiPLsaWuDcpK-ocxF97hCnf8wZyUOFpoDTuEz9YlWw">
 </head>
 <body>
 <ul>

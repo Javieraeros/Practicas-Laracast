@@ -1,5 +1,5 @@
 <?php
-
+use App\Tareas;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,12 +20,13 @@ Route::get('/holi', function () {
 
 Route::get('/tareas', function () {
     //$tareas=DB::table('tareas')->get();
-    $tareas=App\Tareas::all();
+    $tareas=Tareas::all();
     return view('tareas.index',compact("tareas"));
 });
 
 
 Route::get('/tareas/{tarea}', function ($id) {
-    $tarea=DB::table('tareas')->find($id);
+    //$tarea=DB::table('tareas')->find($id);
+    $tarea=Tareas::find($id);
     return view('tareas.tarea',compact("tarea"));
 });

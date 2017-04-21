@@ -1,5 +1,5 @@
 <?php
-use App\Tarea;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

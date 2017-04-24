@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -16,6 +17,12 @@ class PostController extends Controller
     public function create()
     {
         return view('posts.create');
+    }
+
+    public function show($id){
+        $post=new Post();
+        $post=Post::find($id);
+        return $post;
     }
 
     public function store(Request $request){

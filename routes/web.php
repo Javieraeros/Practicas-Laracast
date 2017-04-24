@@ -22,3 +22,8 @@ Route::get('/tareas','TareasController@index');
 
 
 Route::get('/tareas/{tarea}','TareasController@show');
+Route::get('album',function(){
+    return view('tareas.index2');
+});
+
+Route::get('/post','PostController@index');

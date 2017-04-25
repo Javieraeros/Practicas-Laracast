@@ -20,17 +20,18 @@ class PostController extends Controller
     }
 
     public function show($id){
-        $post=new Post();
         $post=Post::find($id);
         return $post;
     }
 
-    public function store(Request $request){
-        $post=new Post();
+    public function store(){
+        /*$post=new Post();
         $post->title=$request->get('title');
         $post->body=$request->get('body');
 
-        $post->save();
+        $post->save();*/
+
+        Post::create(request(['title','body']));
 
         return redirect('/posts');
     }

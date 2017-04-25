@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,17 +19,20 @@ Route::get('/holi', function () {
     return view('holi')->with("holi", "holiii mundiiii");
 });
 
-Route::get('/tareas','TareasController@index');
+Route::get('/tareas', 'TareasController@index');
 
 
-Route::get('/tareas/{tarea}','TareasController@show');
-Route::get('album',function(){
+Route::get('/tareas/{tarea}', 'TareasController@show');
+Route::get('album', function () {
     return view('tareas.index2');
 });
 
-Route::get('/posts','PostController@index');
-Route::get('/posts/{id}','PostController@show');
 
-Route::get('/posts/create','PostController@create');
+//Important to put /posts/create    BEFORE /posts/id, so the router will pick up the first route
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/create', 'PostController@create');
 
-Route::post('posts','PostController@store');
+
+Route::get('/posts/{id}', 'PostController@show');
+
+Route::post('posts', 'PostController@store');

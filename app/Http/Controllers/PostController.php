@@ -11,7 +11,9 @@ class PostController extends Controller
     //
     public function index()
     {
-        return view('posts.index');
+//        $posts=Post::all()->sortByDesc('created_at');
+        $posts=Post::latest()->get();
+        return view('posts.index',compact('posts'));
     }
 
     public function create()
@@ -19,9 +21,16 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    /**
+     * We also can use a wrapper, so we can put Post $post and forget the find method :D
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id){
+
         $post=Post::find($id);
-        return $post;
+        return view('posts.show',compact('post'));
     }
 
     public function store(){
@@ -30,6 +39,11 @@ class PostController extends Controller
         $post->body=$request->get('body');
 
         $post->save();*/
+
+        $this->validate(\request(),[
+            'title'=>'required|max:10',
+            'body'=>'required|min:5'
+        ]);
 
         Post::create(request(['title','body']));
 

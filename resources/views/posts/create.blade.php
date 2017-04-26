@@ -15,7 +15,11 @@
                 <label for="body">Body</label>
                 <textarea class="form-control" id="body" name="body" placeholder="Content"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Publish</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+            @include('posts.errors')
         </form>
+
     </div>
 @endsection

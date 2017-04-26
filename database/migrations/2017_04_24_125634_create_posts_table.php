@@ -8,7 +8,9 @@ class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Remember to change the timezone variable in app file
+     * and also (only if the application is gonna be use in many countries) to change
+     * timestamps to timestampsTz
      * @return void
      */
     public function up()
@@ -17,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 
